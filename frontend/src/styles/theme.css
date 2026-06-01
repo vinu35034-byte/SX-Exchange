@@ -1,0 +1,1132 @@
+/* Modern Material UI Design System - Borderless */
+/* Inspired by Material Design 3.0 and modern crypto exchanges */
+
+/* ===========================================
+   ROOT VARIABLES & MATERIAL DESIGN TOKENS
+   ========================================== */
+
+:root {
+  /* Typography - Material Design Typography Scale */
+  --font-primary: 'Inter', 'Roboto', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Inter', 'Roboto', system-ui, -apple-system, sans-serif;
+  --base-font-size: 16px;
+  
+  /* Material Design Typography Scale */
+  --type-display-large: 57px;
+  --type-display-medium: 45px;
+  --type-display-small: 36px;
+  --type-headline-large: 32px;
+  --type-headline-medium: 28px;
+  --type-headline-small: 24px;
+  --type-title-large: 22px;
+  --type-title-medium: 16px;
+  --type-title-small: 14px;
+  --type-body-large: 16px;
+  --type-body-medium: 14px;
+  --type-body-small: 12px;
+  
+  /* Brand Colors - Material Design Inspired */
+  --brand-primary: #6750A4;
+  --brand-secondary: #625B71;
+  --brand-accent: #0ECB81;
+  --brand-success: #10B981;
+  --brand-warning: #F59E0B;
+  --brand-error: #EF4444;
+  --brand-info: #3B82F6;
+  
+  
+  /* Material Design Surface Colors */
+  --surface-dim: #121318;
+  --surface-bright: #383A42;
+  --surface-container-lowest: #0D0E14;
+  --surface-container-low: #1A1C23;
+  --surface-container: #1E2029;
+  --surface-container-high: #29292F;
+  --surface-container-highest: #34343A;
+  
+  /* Material Design Elevation System - No Borders */
+  --elevation-0: none;
+  --elevation-1: 0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+  --elevation-2: 0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
+  --elevation-3: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px 0px rgba(0, 0, 0, 0.3);
+  --elevation-4: 0px 6px 10px 4px rgba(0, 0, 0, 0.15), 0px 2px 3px 0px rgba(0, 0, 0, 0.3);
+  --elevation-5: 0px 8px 12px 6px rgba(0, 0, 0, 0.15), 0px 4px 4px 0px rgba(0, 0, 0, 0.3);
+  
+  /* Dark Mode Colors - Material You Inspired */
+  --bg-primary: #121318;
+  --bg-secondary: #1A1C23;
+  --bg-tertiary: #1E2029;
+  --bg-accent: #29292F;
+  --bg-surface: var(--surface-container-low);
+  --bg-elevated: var(--surface-container);
+  --bg-card: var(--surface-container-low);
+  --bg-overlay: rgba(0, 0, 0, 0.6);
+  
+  --text-primary: #E6E0E9;
+  --text-secondary: #CAC4D0;
+  --text-tertiary: #938F99;
+  --text-disabled: #5A5D63;
+  --text-inverse: #1C1B1F;
+  
+  --input-bg: var(--surface-container-highest);
+  
+  /* Border colors */
+  --border-color: rgba(255, 255, 255, 0.1);
+  --border-subtle: rgba(255, 255, 255, 0.05);
+  --border-strong: rgba(255, 255, 255, 0.2);
+  
+  
+  /* Material Design Interactive States */
+  --hover-overlay: rgba(103, 80, 164, 0.08);
+  --focus-overlay: rgba(103, 80, 164, 0.12);
+  --pressed-overlay: rgba(103, 80, 164, 0.12);
+  --selected-overlay: rgba(103, 80, 164, 0.08);
+  --drag-overlay: rgba(103, 80, 164, 0.16);
+  
+  /* Material Design State Layers */
+  --state-hover: rgba(255, 255, 255, 0.05);
+  --state-focus: rgba(255, 255, 255, 0.12);
+  --state-pressed: rgba(255, 255, 255, 0.12);
+  --state-dragged: rgba(255, 255, 255, 0.16);
+  
+  /* Modern Border Radius - No Sharp Edges */
+  --radius-none: 0;
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+  --radius-3xl: 28px;
+  --radius-full: 9999px;
+  
+  /* Material Design Spacing Scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  
+  /* Motion Design Tokens */
+  --motion-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+  --motion-easing-decelerated: cubic-bezier(0, 0, 0, 1);
+  --motion-easing-accelerated: cubic-bezier(0.3, 0, 1, 1);
+  --motion-duration-short1: 50ms;
+  --motion-duration-short2: 100ms;
+  --motion-duration-short3: 150ms;
+  --motion-duration-short4: 200ms;
+  --motion-duration-medium1: 250ms;
+  --motion-duration-medium2: 300ms;
+  --motion-duration-medium3: 350ms;
+  --motion-duration-medium4: 400ms;
+  --motion-duration-long1: 450ms;
+  --motion-duration-long2: 500ms;
+  --motion-duration-long3: 550ms;
+  --motion-duration-long4: 600ms;
+}
+
+/* ===========================================
+   DARK MODE - MATERIAL DESIGN 3.0
+   ========================================== */
+
+.dark {
+  /* Material Dark Surface Colors */
+  --surface-dim: #121318;
+  --surface-bright: #383A42;
+  --surface-container-lowest: #0D0E14;
+  --surface-container-low: #1A1C23;
+  --surface-container: #1E2029;
+  --surface-container-high: #29292F;
+  --surface-container-highest: #34343A;
+  
+  /* Dark Mode Background Colors */
+  --bg-primary: #121318;
+  --bg-secondary: #1A1C23;
+  --bg-tertiary: #1E2029;
+  --bg-accent: #29292F;
+  --bg-surface: var(--surface-container-low);
+  --bg-elevated: var(--surface-container);
+  --bg-card: var(--surface-container-low);
+  --bg-overlay: rgba(0, 0, 0, 0.7);
+  
+  /* Material Dark Text Colors */
+  --text-primary: #E6E0E9;
+  --text-secondary: #CAC4D0;
+  --text-tertiary: #938F99;
+  --text-disabled: #5A5D63;
+  --text-inverse: #1C1B1F;
+  
+  --input-bg: var(--surface-container-highest);
+  
+  /* Dark Mode State Layers */
+  --state-hover: rgba(255, 255, 255, 0.05);
+  --state-focus: rgba(255, 255, 255, 0.12);
+  --state-pressed: rgba(255, 255, 255, 0.12);
+  --state-dragged: rgba(255, 255, 255, 0.16);
+}
+
+/* ===========================================
+   LIGHT MODE - MATERIAL DESIGN 3.0
+   ========================================== */
+
+.light {
+  /* Material Light Surface Colors */
+  --surface-dim: #DDD8E1;
+  --surface-bright: #FEF7FF;
+  --surface-container-lowest: #FFFFFF;
+  --surface-container-low: #F7F2FA;
+  --surface-container: #F1ECF4;
+  --surface-container-high: #ECE6F0;
+  --surface-container-highest: #E6E0E9;
+  
+  /* Light Mode Background Colors */
+  --bg-primary: #FEF7FF;
+  --bg-secondary: #F7F2FA;
+  --bg-tertiary: #F1ECF4;
+  --bg-accent: #ECE6F0;
+  --bg-surface: var(--surface-container-low);
+  --bg-elevated: var(--surface-container);
+  --bg-card: var(--surface-container-lowest);
+  --bg-overlay: rgba(0, 0, 0, 0.5);
+  
+  /* Material Light Text Colors */
+  --text-primary: #1C1B1F;
+  --text-secondary: #49454F;
+  --text-tertiary: #79747E;
+  --text-disabled: #C4C7C5;
+  --text-inverse: #FFFFFF;
+  
+  --input-bg: var(--surface-container-highest);
+  
+  /* Border colors */
+  --border-color: rgba(28, 27, 31, 0.1);
+  --border-subtle: rgba(28, 27, 31, 0.05);
+  --border-strong: rgba(28, 27, 31, 0.2);
+  
+  /* Light Mode State Layers */
+  --state-hover: rgba(103, 80, 164, 0.05);
+  --state-focus: rgba(103, 80, 164, 0.12);
+  --state-pressed: rgba(103, 80, 164, 0.12);
+  --state-dragged: rgba(103, 80, 164, 0.16);
+}
+
+/* ===========================================
+   BASE STYLES
+   ========================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: var(--base-font-size);
+  line-height: 1.5;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===========================================
+   UTILITY CLASSES
+   ========================================== */
+
+/* Background Utilities */
+.bg-primary { background-color: var(--bg-primary); }
+.bg-secondary { background-color: var(--bg-secondary); }
+.bg-tertiary { background-color: var(--bg-tertiary); }
+.bg-accent { background-color: var(--bg-accent); }
+.bg-surface { background-color: var(--bg-surface); }
+.bg-elevated { background-color: var(--bg-elevated); }
+.bg-card { background-color: var(--bg-card); }
+
+/* Text Utilities */
+.text-primary { color: var(--text-primary); }
+.text-secondary { color: var(--text-secondary); }
+.text-tertiary { color: var(--text-tertiary); }
+.text-disabled { color: var(--text-disabled); }
+.text-inverse { color: var(--text-inverse); }
+
+/* Brand Text Colors */
+.text-brand-primary { color: var(--brand-primary); }
+.text-brand-secondary { color: var(--brand-secondary); }
+.text-brand-accent { color: var(--brand-accent); }
+.text-brand-success { color: var(--brand-success); }
+.text-brand-warning { color: var(--brand-warning); }
+.text-brand-error { color: var(--brand-error); }
+.text-brand-info { color: var(--brand-info); }
+
+/* Brand Background Colors */
+.bg-brand-primary { background-color: var(--brand-primary); }
+.bg-brand-secondary { background-color: var(--brand-secondary); }
+.bg-brand-accent { background-color: var(--brand-accent); }
+.bg-brand-success { background-color: var(--brand-success); }
+.bg-brand-warning { background-color: var(--brand-warning); }
+.bg-brand-error { background-color: var(--brand-error); }
+.bg-brand-info { background-color: var(--brand-info); }
+
+/* ===========================================
+   MATERIAL DESIGN COMPONENT STYLES
+   ========================================== */
+
+/* Material Design Button Components */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  text-align: center;
+  background: transparent;
+  border: none;
+  outline: none;
+  border-radius: var(--radius-lg);
+  transition: all var(--motion-duration-short4) var(--motion-easing-standard);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  font-family: var(--font-primary);
+  font-size: var(--type-body-medium);
+  line-height: 1.5;
+  letter-spacing: 0.1px;
+}
+
+.btn:disabled {
+  opacity: 0.38;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--state-hover);
+  opacity: 0;
+  transition: opacity var(--motion-duration-short2) var(--motion-easing-standard);
+}
+
+.btn:hover::before {
+  opacity: 1;
+}
+
+.btn:focus::before {
+  background: var(--state-focus);
+  opacity: 1;
+}
+
+.btn:active::before {
+  background: var(--state-pressed);
+  opacity: 1;
+}
+
+.btn-primary {
+  background: var(--brand-primary);
+  color: white;
+  padding: var(--space-3) var(--space-6);
+  box-shadow: var(--elevation-1);
+}
+
+.btn-primary:hover {
+  box-shadow: var(--elevation-2);
+}
+
+.btn-primary:focus {
+  box-shadow: var(--elevation-2);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--brand-primary);
+  padding: var(--space-3) var(--space-6);
+  border: 1px solid var(--brand-primary);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-primary);
+  padding: var(--space-3) var(--space-4);
+}
+
+.btn-sm {
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--type-body-small);
+}
+
+.btn-lg {
+  padding: var(--space-4) var(--space-8);
+  font-size: var(--type-body-large);
+}
+
+/* Material Design Card Components */
+.card {
+  background: var(--bg-card);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  box-shadow: var(--elevation-1);
+  transition: all var(--motion-duration-medium2) var(--motion-easing-standard);
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--state-hover);
+  opacity: 0;
+  transition: opacity var(--motion-duration-short2) var(--motion-easing-standard);
+}
+
+.card:hover {
+  box-shadow: var(--elevation-2);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card-interactive {
+  cursor: pointer;
+}
+
+.card-elevated {
+  background: var(--bg-elevated);
+  box-shadow: var(--elevation-3);
+}
+
+/* Material Design Input Components */
+.input {
+  width: 100%;
+  background: var(--input-bg);
+  border: none;
+  outline: none;
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  font-size: var(--type-body-medium);
+  color: var(--text-primary);
+  transition: all var(--motion-duration-short4) var(--motion-easing-standard);
+  font-family: var(--font-primary);
+  position: relative;
+}
+
+.input:focus {
+  box-shadow: var(--elevation-1);
+  background: var(--bg-elevated);
+}
+
+.input:disabled {
+  opacity: 0.38;
+  cursor: not-allowed;
+}
+
+.input::placeholder {
+  color: var(--text-tertiary);
+}
+
+/* Material Design Navigation Components */
+.nav-item {
+  display: flex;
+  align-items: center;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-lg);
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: all var(--motion-duration-short4) var(--motion-easing-standard);
+  position: relative;
+  border: none;
+  background: transparent;
+}
+
+.nav-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--state-hover);
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity var(--motion-duration-short2) var(--motion-easing-standard);
+}
+
+.nav-item:hover::before {
+  opacity: 1;
+}
+
+.nav-item:hover {
+  color: var(--brand-primary);
+}
+
+.nav-item.active {
+  background: var(--brand-primary);
+  color: white;
+  box-shadow: var(--elevation-1);
+}
+
+/* Material Design Badge Components */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--type-body-small);
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0.1px;
+  border: none;
+}
+
+.badge-primary {
+  background: var(--brand-primary);
+  color: white;
+}
+
+.badge-success {
+  background: var(--brand-success);
+  color: white;
+}
+
+.badge-warning {
+  background: var(--brand-warning);
+  color: white;
+}
+
+.badge-error {
+  background: var(--brand-error);
+  color: white;
+}
+
+.badge-outline {
+  background: transparent;
+  color: var(--brand-primary);
+  border: 1px solid var(--brand-primary);
+}
+
+/* Material Design Table Components */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--bg-card);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--elevation-1);
+  border: none;
+}
+
+.table th {
+  background: var(--bg-elevated);
+  color: var(--text-secondary);
+  font-weight: 500;
+  padding: var(--space-4);
+  text-align: left;
+  border: none;
+}
+
+.table td {
+  padding: var(--space-4);
+  color: var(--text-primary);
+  border: none;
+}
+
+.table tr {
+  transition: background-color var(--motion-duration-short2) var(--motion-easing-standard);
+  border: none;
+}
+
+.table tr:hover {
+  background: var(--state-hover);
+}
+
+/* Material Design Modal Components */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-overlay);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: var(--bg-card);
+  border-radius: var(--radius-3xl);
+  padding: var(--space-8);
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--elevation-5);
+  border: none;
+}
+
+/* ===========================================
+   MATERIAL MOTION & ANIMATION UTILITIES
+   ========================================== */
+
+.animate-fade-in {
+  animation: materialFadeIn var(--motion-duration-medium2) var(--motion-easing-standard);
+}
+
+.animate-slide-up {
+  animation: materialSlideUp var(--motion-duration-medium2) var(--motion-easing-decelerated);
+}
+
+.animate-scale-in {
+  animation: materialScaleIn var(--motion-duration-short4) var(--motion-easing-standard);
+}
+
+.animate-bounce-in {
+  animation: materialBounceIn var(--motion-duration-medium4) var(--motion-easing-decelerated);
+}
+
+.animate-float {
+  animation: materialFloat 3s var(--motion-easing-standard) infinite;
+}
+
+@keyframes materialFadeIn {
+  from { 
+    opacity: 0; 
+  }
+  to { 
+    opacity: 1; 
+  }
+}
+
+@keyframes materialSlideUp {
+  from { 
+    opacity: 0; 
+    transform: translateY(24px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+@keyframes materialScaleIn {
+  from { 
+    opacity: 0; 
+    transform: scale(0.8); 
+  }
+  to { 
+    opacity: 1; 
+    transform: scale(1); 
+  }
+}
+
+@keyframes materialBounceIn {
+  0% { 
+    opacity: 0; 
+    transform: scale(0.3); 
+  }
+  50% { 
+    opacity: 1; 
+    transform: scale(1.05); 
+  }
+  70% { 
+    transform: scale(0.9); 
+  }
+  100% { 
+    opacity: 1; 
+    transform: scale(1); 
+  }
+}
+
+@keyframes materialFloat {
+  0%, 100% { 
+    transform: translateY(0px); 
+  }
+  50% { 
+    transform: translateY(-10px); 
+  }
+}
+
+/* Material Design Ripple Effect */
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: var(--state-pressed);
+  transform: translate(-50%, -50%);
+  transition: width var(--motion-duration-medium2) var(--motion-easing-standard),
+              height var(--motion-duration-medium2) var(--motion-easing-standard);
+}
+
+.ripple:active::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* ===========================================
+   RESPONSIVE DESIGN - MATERIAL DESIGN
+   ========================================== */
+
+/* Material Design Breakpoints */
+@media (max-width: 600px) {
+  .btn {
+    padding: var(--space-3) var(--space-5);
+    font-size: var(--type-body-small);
+  }
+  
+  .card {
+    padding: var(--space-4);
+    border-radius: var(--radius-lg);
+  }
+  
+  .input {
+    padding: var(--space-3);
+    font-size: var(--type-body-small);
+  }
+  
+  .table th,
+  .table td {
+    padding: var(--space-3);
+    font-size: var(--type-body-small);
+  }
+  
+  .modal-content {
+    padding: var(--space-6);
+    border-radius: var(--radius-xl);
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --base-font-size: 14px;
+  }
+  
+  .card {
+    padding: var(--space-3);
+    border-radius: var(--radius-md);
+  }
+  
+  .btn {
+    padding: var(--space-2) var(--space-4);
+  }
+}
+
+/* ===========================================
+   ACCESSIBILITY & INCLUSIVITY
+   ========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Material Design Focus Indicators */
+.focus-visible:focus-visible {
+  outline: 2px solid var(--brand-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --text-secondary: var(--text-primary);
+    --text-tertiary: var(--text-primary);
+  }
+}
+
+/* Material Design Screen Reader Support */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Material Design Skip Links */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--brand-primary);
+  color: white;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  z-index: 100;
+  font-weight: 500;
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
+/* ===========================================
+   MATERIAL DESIGN THEME TRANSITIONS
+   ========================================== */
+
+* {
+  transition: background-color var(--motion-duration-medium2) var(--motion-easing-standard), 
+              color var(--motion-duration-medium2) var(--motion-easing-standard), 
+              box-shadow var(--motion-duration-short4) var(--motion-easing-standard),
+              transform var(--motion-duration-short4) var(--motion-easing-standard);
+}
+
+/* Smooth theme transitions */
+.theme-transitioning * {
+  transition: none !important;
+}
+
+/* Material Design Utility Classes */
+.elevation-0 { box-shadow: var(--elevation-0); }
+.elevation-1 { box-shadow: var(--elevation-1); }
+.elevation-2 { box-shadow: var(--elevation-2); }
+.elevation-3 { box-shadow: var(--elevation-3); }
+.elevation-4 { box-shadow: var(--elevation-4); }
+.elevation-5 { box-shadow: var(--elevation-5); }
+
+.surface-tint {
+  background: linear-gradient(135deg, 
+    var(--brand-primary)10, 
+    var(--brand-accent)5);
+}
+
+.state-layer {
+  position: relative;
+  overflow: hidden;
+}
+
+.state-layer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--state-hover);
+  opacity: 0;
+  transition: opacity var(--motion-duration-short2) var(--motion-easing-standard);
+  pointer-events: none;
+}
+
+.state-layer:hover::before {
+  opacity: 1;
+}
+
+/* Material Design Typography Utilities */
+.display-large { 
+  font-size: var(--type-display-large); 
+  font-weight: 400; 
+  line-height: 1.12; 
+}
+
+.display-medium { 
+  font-size: var(--type-display-medium); 
+  font-weight: 400; 
+  line-height: 1.16; 
+}
+
+.display-small { 
+  font-size: var(--type-display-small); 
+  font-weight: 400; 
+  line-height: 1.22; 
+}
+
+.headline-large { 
+  font-size: var(--type-headline-large); 
+  font-weight: 400; 
+  line-height: 1.25; 
+}
+
+.headline-medium { 
+  font-size: var(--type-headline-medium); 
+  font-weight: 400; 
+  line-height: 1.29; 
+}
+
+.headline-small { 
+  font-size: var(--type-headline-small); 
+  font-weight: 400; 
+  line-height: 1.33; 
+}
+
+.title-large { 
+  font-size: var(--type-title-large); 
+  font-weight: 400; 
+  line-height: 1.27; 
+}
+
+.title-medium { 
+  font-size: var(--type-title-medium); 
+  font-weight: 500; 
+  line-height: 1.5; 
+}
+
+.title-small { 
+  font-size: var(--type-title-small); 
+  font-weight: 500; 
+  line-height: 1.43; 
+}
+
+.body-large { 
+  font-size: var(--type-body-large); 
+  font-weight: 400; 
+  line-height: 1.5; 
+}
+
+.body-medium { 
+  font-size: var(--type-body-medium); 
+  font-weight: 400; 
+  line-height: 1.43; 
+}
+
+.body-small { 
+  font-size: var(--type-body-small); 
+  font-weight: 400; 
+  line-height: 1.33; 
+}
+
+/* ===========================================
+   COMPONENT STYLES
+   ========================================== */
+
+/* Button Styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  transition: all 200ms;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  height: 2.5rem;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--brand-primary);
+  outline-offset: 2px;
+}
+
+.btn:disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.btn-primary {
+  background-color: var(--brand-primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--brand-secondary);
+}
+
+.btn-secondary {
+  border: 1px solid var(--brand-primary);
+  color: var(--brand-primary);
+  background: transparent;
+}
+
+.btn-secondary:hover {
+  background-color: var(--brand-primary);
+  color: white;
+}
+
+.btn-success {
+  background-color: var(--brand-success);
+  color: white;
+}
+
+.btn-success:hover {
+  background-color: var(--brand-success);
+  opacity: 0.9;
+}
+
+.btn-ghost {
+  color: var(--text-primary);
+  background: transparent;
+}
+
+.btn-ghost:hover {
+  background-color: var(--bg-secondary);
+}
+
+.btn-sm {
+  height: 2rem;
+  padding: 0 0.75rem;
+  font-size: 0.875rem;
+}
+
+.btn-lg {
+  height: 3rem;
+  padding: 0 1.5rem;
+  font-size: 1.125rem;
+}
+
+/* Card Styles */
+.card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--elevation-1);
+}
+
+.card-interactive {
+  transition: all 200ms;
+  cursor: pointer;
+}
+
+.card-interactive:hover {
+  box-shadow: var(--elevation-2);
+  border-color: rgba(103, 80, 164, 0.3);
+  transform: translateY(-4px);
+}
+
+.card-gradient {
+  background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-surface) 100%);
+  border: 1px solid rgba(103, 80, 164, 0.2);
+  box-shadow: var(--elevation-2);
+}
+
+/* Input Styles */
+.input {
+  width: 100%;
+  background-color: var(--input-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 0.75rem;
+  color: var(--text-primary);
+  transition: all 200ms;
+}
+
+.input::placeholder {
+  color: var(--text-tertiary);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 2px rgba(103, 80, 164, 0.2);
+}
+
+/* Navigation Styles */
+.nav-item {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-radius: var(--radius-lg);
+  transition: all 200ms;
+}
+
+.nav-item:hover {
+  color: var(--brand-primary);
+  background-color: rgba(103, 80, 164, 0.1);
+}
+
+.nav-item.active {
+  color: white;
+  background-color: var(--brand-primary);
+}
+
+/* Badge Styles */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.badge-primary {
+  background-color: var(--brand-primary);
+  color: white;
+}
+
+.badge-success {
+  background-color: var(--brand-success);
+  color: white;
+}
+
+.badge-accent {
+  background-color: var(--brand-accent);
+  color: white;
+}
+
+.badge-warning {
+  background-color: var(--brand-warning);
+  color: white;
+}
+
+.badge-error {
+  background-color: var(--brand-error);
+  color: white;
+}
+
+.badge-info {
+  background-color: var(--brand-info);
+  color: white;
+}
+
+.badge-outline {
+  border: 1px solid var(--brand-primary);
+  color: var(--brand-primary);
+  background: transparent;
+}
+
+/* Shadow Utilities */
+.shadow-brand {
+  box-shadow: 0 4px 14px 0 rgba(103, 80, 164, 0.3);
+}
+
+.shadow-brand-lg {
+  box-shadow: 0 8px 25px 0 rgba(103, 80, 164, 0.4);
+}
+
+/* Additional gradient utilities for ThemePreview */
+.bg-gradient-primary {
+  background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-accent) 100%);
+}
+
+.bg-gradient-accent {
+  background: linear-gradient(135deg, var(--brand-accent) 0%, var(--brand-success) 100%);
+}
+
+.bg-gradient-success {
+  background: linear-gradient(135deg, var(--brand-success) 0%, var(--brand-accent) 100%);
+}
+
+.bg-gradient-dark {
+  background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-primary) 100%);
+}

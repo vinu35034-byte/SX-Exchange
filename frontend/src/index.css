@@ -1,0 +1,226 @@
+/* Import Binance Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@700&display=swap');
+@import "tailwindcss";
+
+/* Import theme styles */
+@import './styles/theme.css';
+
+/* Binance-like font fallback */
+@font-face {
+  font-family: 'BinancePlex';
+  src: local('Inter'), local('SF Pro Display'), local('Segoe UI'), local('Roboto');
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Critical CSS to prevent FOUC */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'BinancePlex', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  /* Prevent zooming */
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  
+  /* Disable zoom on mobile devices */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  
+  /* Additional zoom prevention */
+  touch-action: manipulation;
+  -ms-touch-action: manipulation;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: var(--bg-primary, #121318) !important;
+  color: var(--text-primary, #E6E0E9) !important;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  font-family: 'BinancePlex', 'Inter', system-ui, -apple-system, sans-serif;
+  
+  /* Additional zoom prevention */
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  touch-action: manipulation;
+  -ms-touch-action: manipulation;
+  
+  /* Prevent selection and callouts that might trigger zoom */
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Root transitions */
+#root {
+  min-height: 100vh;
+  transition: opacity 0.3s ease;
+}
+
+#root:not(.loaded) {
+  opacity: 0;
+}
+
+#root.loaded {
+  opacity: 1;
+}
+
+@layer base {
+  :root {
+    --brand-primary: #6750A4;
+    --brand-secondary: #625B71;
+    --brand-accent: #0ECB81;
+    --brand-success: #10B981;
+    --brand-warning: #F59E0B;
+    --brand-error: #EF4444;
+    --brand-danger: #EF4444;
+    --brand-info: #3B82F6;
+    
+    /* Background colors */
+    --bg-primary: #FEF7FF;
+    --bg-secondary: #F7F2FA;
+    --bg-tertiary: #F1ECF4;
+    --bg-accent: #ECE6F0;
+    --bg-card: #FFFFFF;
+    --bg-surface: #F7F2FA;
+    --bg-elevated: #F1ECF4;
+    
+    /* Text colors */
+    --text-primary: #1C1B1F;
+    --text-secondary: #49454F;
+    --text-tertiary: #79747E;
+    --text-muted: #79747E;
+    --text-disabled: #C4C7C5;
+    --text-inverse: #FFFFFF;
+    
+    /* Other colors */
+    --border-color: #E1E3E1;
+    --background: #FEF7FF;
+    --foreground: #1C1B1F;
+    --primary: #6750A4;
+    --secondary: #49454F;
+    --muted: #79747E;
+    --input-bg: #E6E0E9;
+  }
+
+  .dark {
+    --brand-primary: #6750A4;
+    --brand-secondary: #625B71;
+    --brand-accent: #0ECB81;
+    --brand-success: #10B981;
+    --brand-warning: #F59E0B;
+    --brand-error: #EF4444;
+    --brand-danger: #EF4444;
+    --brand-info: #3B82F6;
+    
+    /* Background colors */
+    --bg-primary: #121318;
+    --bg-secondary: #1A1C23;
+    --bg-tertiary: #1E2029;
+    --bg-accent: #29292F;
+    --bg-card: #1A1C23;
+    --bg-surface: #1A1C23;
+    --bg-elevated: #1E2029;
+    
+    /* Text colors */
+    --text-primary: #E6E0E9;
+    --text-secondary: #CAC4D0;
+    --text-tertiary: #938F99;
+    --text-muted: #938F99;
+    --text-disabled: #5A5D63;
+    --text-inverse: #1C1B1F;
+    
+    /* Other colors */
+    --border-color: #2D2F36;
+    --background: #121318;
+    --foreground: #E6E0E9;
+    --primary: #6750A4;
+    --secondary: #CAC4D0;
+    --muted: #938F99;
+    --input-bg: #34343A;
+  }
+
+  * {
+    border-color: var(--border-color, #e2e8f0);
+  }
+  
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+}
+
+/* Theme-based styling */
+html.light, html.light body {
+  background-color: var(--bg-primary, #FEF7FF) !important;
+  color: var(--text-primary, #1C1B1F) !important;
+}
+
+html.dark, html.dark body {
+  background-color: var(--bg-primary, #121318) !important;
+  color: var(--text-primary, #E6E0E9) !important;
+}
+
+/* Comprehensive zoom prevention */
+*, *::before, *::after {
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Prevent double-tap zoom on mobile */
+a, button, input, textarea, select {
+  touch-action: manipulation;
+}
+
+/* Prevent zoom on input focus (iOS Safari) */
+input, textarea, select {
+  font-size: 16px !important;
+}
+
+/* Prevent zoom on form elements */
+input[type="text"], 
+input[type="email"], 
+input[type="password"], 
+input[type="number"], 
+input[type="tel"], 
+textarea {
+  font-size: 16px !important;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Additional mobile zoom prevention */
+@media screen and (max-width: 768px) {
+  input, textarea, select {
+    font-size: 16px !important;
+    -webkit-text-size-adjust: 100%;
+  }
+}
+
+/* Hide scrollbar while keeping scroll functionality */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari and Opera */
+}
+

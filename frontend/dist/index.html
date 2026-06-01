@@ -1,0 +1,679 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, shrink-to-fit=no" />
+    
+    <!-- Additional zoom prevention meta tags -->
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="theme-color" content="#121318" />
+
+    <title>HEX Global: Future of CryptoCurrency</title>
+    
+    <script>
+      // Immediately check and apply saved theme before page renders
+      (function() {
+        const savedTheme = localStorage.getItem('theme-mode');
+        
+        // Always default to dark mode - only use light if explicitly saved
+        let shouldUseDark;
+        if (savedTheme === 'light') {
+          shouldUseDark = false;
+        } else {
+          // Default to dark theme (even if savedTheme is 'dark' or null/undefined)
+          shouldUseDark = true;
+        }
+
+        // Clear any existing theme classes first
+        document.documentElement.classList.remove('dark', 'light');
+        
+        if (shouldUseDark) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.add('light');
+        }
+        
+        console.log('Applied classes:', document.documentElement.classList.toString());
+      })();
+    </script>
+    
+    <!-- Zoom Prevention Script -->
+    <script>
+      // Prevent zoom via keyboard shortcuts and mouse wheel
+      (function() {
+        // Prevent keyboard zoom shortcuts (Ctrl/Cmd + +, -, 0)
+        document.addEventListener('keydown', function(e) {
+          // Check for Ctrl+Plus, Ctrl+Minus, Ctrl+0 (Windows)
+          // Check for Cmd+Plus, Cmd+Minus, Cmd+0 (Mac)
+          if ((e.ctrlKey || e.metaKey) && 
+              (e.keyCode === 61 || e.keyCode === 107 || e.keyCode === 173 || 
+               e.keyCode === 109 || e.keyCode === 187 || e.keyCode === 189 || 
+               e.keyCode === 48)) {
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+          }
+        }, { passive: false });
+
+        // Prevent zoom via mouse wheel + Ctrl/Cmd
+        document.addEventListener('wheel', function(e) {
+          if (e.ctrlKey || e.metaKey) {
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+          }
+        }, { passive: false });
+
+        // Prevent zoom via touch gestures (pinch-to-zoom)
+        let touchStartDistance = 0;
+        
+        document.addEventListener('touchstart', function(e) {
+          if (e.touches.length === 2) {
+            touchStartDistance = Math.hypot(
+              e.touches[0].pageX - e.touches[1].pageX,
+              e.touches[0].pageY - e.touches[1].pageY
+            );
+          }
+        }, { passive: false });
+
+        document.addEventListener('touchmove', function(e) {
+          if (e.touches.length === 2) {
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+          }
+        }, { passive: false });
+
+        // Prevent context menu which can sometimes be used for zoom
+        document.addEventListener('contextmenu', function(e) {
+          if (e.ctrlKey || e.metaKey) {
+            e.preventDefault();
+            return false;
+          }
+        }, { passive: false });
+
+        // Additional prevention for browser zoom detection
+        let scale = 1;
+        
+        function detectZoom() {
+          const newScale = Math.round(window.devicePixelRatio * 100) / 100;
+          if (Math.abs(newScale - scale) > 0.01) {
+            scale = newScale;
+            // Reset zoom by refreshing if zoom detected (optional)
+            // You can uncomment the line below if you want to force refresh on zoom
+            // window.location.reload();
+          }
+        }
+
+        // Monitor for zoom changes
+        window.addEventListener('resize', detectZoom);
+        window.addEventListener('load', detectZoom);
+        
+        console.log('Zoom prevention system initialized');
+      })();
+    </script>
+    
+    <!-- Critical CSS to prevent FOUC -->
+    <style>
+      /* Import theme variables first */
+      :root {
+        /* Dark mode defaults - Updated gold theme */
+        --bg-primary: #181A20;
+        --bg-secondary: #1F2128;
+        --bg-tertiary: #252A33;
+        --bg-accent: #333A47;
+        --bg-surface: #1F2128;
+        --bg-elevated: #252A33;
+        --bg-card: #1F2128;
+        
+        --text-primary: #EAECEF;
+        --text-secondary: #EAECEF;
+        --text-tertiary: #EAECEF;
+        
+        --brand-accent: #FCD535;
+        --brand-primary: #FCD535;
+        --brand-success: #22C55E;
+        --brand-warning: #EAB308;
+        --brand-error: #EF4444;
+        --brand-info: #3B82F6;
+        
+        --border-color: #333A47;
+        --background: #181A20;
+        --foreground: #EAECEF;
+      }
+
+      /* Light mode variables - Match theme.css */
+      html.light,
+      html.light:root {
+        --bg-primary: #FEF7FF !important;
+        --bg-secondary: #F7F2FA !important;
+        --bg-tertiary: #F1ECF4 !important;
+        --bg-accent: #ECE6F0 !important;
+        --bg-surface: #F7F2FA !important;
+        --bg-elevated: #F1ECF4 !important;
+        --bg-card: #FFFFFF !important;
+        
+        --text-primary: #1C1B1F !important;
+        --text-secondary: #49454F !important;
+        --text-tertiary: #79747E !important;
+        
+        --brand-accent: #FCD535 !important;
+        --brand-primary: #FCD535 !important;
+        --brand-success: #22C55E !important;
+        --brand-warning: #EAB308 !important;
+        --brand-error: #EF4444 !important;
+        --brand-info: #3B82F6 !important;
+        
+        --border-color: #E6E0E9 !important;
+        --background: #FEF7FF !important;
+        --foreground: #1C1B1F !important;
+      }
+
+      /* Prevent FOUC with minimal critical CSS */
+      html, body {
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+          'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+          sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        background-color: var(--bg-primary, #121318);
+        color: var(--text-primary, #E6E0E9);
+      }
+      
+      #root {
+        min-height: 100vh;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+      
+      #root.loaded {
+        opacity: 1;
+      }
+      
+      /* Loading container with logo and title */
+      .loading-container {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        z-index: 9999;
+      }
+      
+      .loading-logo {
+        width: 80px;
+        height: 80px;
+        animation: logoFloat 2s ease-in-out infinite;
+      }
+      
+      .loading-title {
+        font-size: 2rem;
+        font-weight: 700;
+        background: linear-gradient(to right, #38bdf8, #60a5fa, #a78bfa);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        margin: 0;
+        letter-spacing: -0.025em;
+      }
+      
+      .loading-skeleton {
+        margin-top: 1.5rem;
+        width: 100%;
+        max-width: 320px;
+      }
+      
+      .skeleton-header {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+        padding: 0.75rem;
+        background: linear-gradient(135deg, rgba(56, 189, 248, 0.1), rgba(168, 85, 247, 0.1));
+        border: 1px solid rgba(56, 189, 248, 0.2);
+        border-radius: 0.75rem;
+      }
+      
+      .skeleton-avatar {
+        width: 40px;
+        height: 40px;
+        background: var(--bg-tertiary, #252A33);
+        border-radius: 50%;
+        animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      }
+      
+      .skeleton-text {
+        flex: 1;
+      }
+      
+      .skeleton-text-line {
+        height: 0.75rem;
+        background: var(--bg-tertiary, #252A33);
+        border-radius: 0.375rem;
+        animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      }
+      
+      .skeleton-text-line:first-child {
+        width: 60%;
+        margin-bottom: 0.5rem;
+      }
+      
+      .skeleton-text-line:last-child {
+        width: 40%;
+      }
+      
+      .skeleton-cards {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      
+      .skeleton-card {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.75rem;
+        background: var(--bg-secondary, #1F2128);
+        border-radius: 0.5rem;
+        border-bottom: 1px solid var(--bg-tertiary, #252A33);
+      }
+      
+      .skeleton-card-left {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+      
+      .skeleton-card-icon {
+        width: 32px;
+        height: 32px;
+        background: var(--bg-tertiary, #252A33);
+        border-radius: 50%;
+        animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        border: 2px solid var(--bg-accent, #333A47);
+      }
+      
+      .skeleton-card-text {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+      }
+      
+      .skeleton-card-title {
+        width: 48px;
+        height: 0.75rem;
+        background: var(--bg-tertiary, #252A33);
+        border-radius: 0.25rem;
+        animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      }
+      
+      .skeleton-card-subtitle {
+        width: 64px;
+        height: 0.625rem;
+        background: var(--bg-tertiary, #252A33);
+        border-radius: 0.25rem;
+        animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      }
+      
+      .skeleton-card-right {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 0.25rem;
+      }
+      
+      .skeleton-card-price {
+        width: 56px;
+        height: 0.75rem;
+        background: var(--bg-tertiary, #252A33);
+        border-radius: 0.25rem;
+        animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      }
+      
+      .skeleton-card-change {
+        width: 40px;
+        height: 0.625rem;
+        background: var(--bg-tertiary, #252A33);
+        border-radius: 0.25rem;
+        animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      }
+      
+      @keyframes logoFloat {
+        0%, 100% { 
+          transform: translateY(0px);
+          filter: drop-shadow(0 4px 8px rgba(252, 213, 53, 0.3));
+        }
+        50% { 
+          transform: translateY(-10px);
+          filter: drop-shadow(0 8px 16px rgba(252, 213, 53, 0.4));
+        }
+      }
+      
+      @keyframes pulse {
+        0%, 100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.5;
+        }
+      }
+      
+      /* Light mode support */
+      html.light body {
+        background-color: var(--bg-primary, #FEF7FF) !important;
+        color: var(--text-primary, #1C1B1F) !important;
+      }
+      
+      html.light .loading-title {
+        background: linear-gradient(to right, #38bdf8, #60a5fa, #a78bfa) !important;
+        background-clip: text !important;
+        -webkit-background-clip: text !important;
+        color: transparent !important;
+      }
+      
+      html.light .skeleton-header {
+        background: linear-gradient(135deg, rgba(56, 189, 248, 0.15), rgba(168, 85, 247, 0.15)) !important;
+        border: 1px solid rgba(56, 189, 248, 0.3) !important;
+      }
+      
+      html.light .skeleton-card {
+        background: var(--bg-secondary, #F7F2FA) !important;
+      }
+      
+      html.light .skeleton-avatar,
+      html.light .skeleton-text-line,
+      html.light .skeleton-card-icon,
+      html.light .skeleton-card-title,
+      html.light .skeleton-card-subtitle,
+      html.light .skeleton-card-price,
+      html.light .skeleton-card-change {
+        background: var(--bg-tertiary, #F1ECF4) !important;
+      }
+      
+      html.light .skeleton-card-icon {
+        border-color: var(--bg-accent, #ECE6F0) !important;
+      }
+      
+      html.light .loading-logo {
+        filter: drop-shadow(0 4px 8px rgba(252, 213, 53, 0.4)) !important;
+      }
+
+      /* Dark mode support - both system preference and manual toggle */
+      html.dark body {
+        background-color: var(--bg-primary, #181A20) !important;
+        color: var(--text-primary, #EAECEF) !important;
+      }
+      
+      html.dark .loading-title {
+        background: linear-gradient(to right, #38bdf8, #60a5fa, #a78bfa) !important;
+        background-clip: text !important;
+        -webkit-background-clip: text !important;
+        color: transparent !important;
+      }
+      
+      html.dark .loading-spinner {
+        border-color: var(--bg-tertiary, #252A33) !important;
+        border-top-color: var(--brand-accent, #FCD535) !important;
+      }
+      
+      html.dark .loading-logo {
+        filter: drop-shadow(0 4px 8px rgba(252, 213, 53, 0.4)) !important;
+      }
+      
+      /* System preference fallback - but always prefer dark mode */
+      @media (prefers-color-scheme: light) {
+        /* Only apply light mode if user explicitly chose it */
+        html.light body {
+          background-color: var(--bg-primary, #FEF7FF);
+          color: var(--text-primary, #1C1B1F);
+        }
+        
+        html.light .loading-title {
+          background: linear-gradient(to right, #38bdf8, #60a5fa, #a78bfa);
+          background-clip: text;
+          -webkit-background-clip: text;
+          color: transparent;
+        }
+        
+        html.light .skeleton-header {
+          background: linear-gradient(135deg, rgba(56, 189, 248, 0.15), rgba(168, 85, 247, 0.15));
+          border: 1px solid rgba(56, 189, 248, 0.3);
+        }
+        
+        html.light .skeleton-card {
+          background: var(--bg-secondary, #F7F2FA);
+        }
+        
+        html.light .skeleton-avatar,
+        html.light .skeleton-text-line,
+        html.light .skeleton-card-icon,
+        html.light .skeleton-card-title,
+        html.light .skeleton-card-subtitle,
+        html.light .skeleton-card-price,
+        html.light .skeleton-card-change {
+          background: var(--bg-tertiary, #F1ECF4);
+        }
+      }
+
+      @media (prefers-color-scheme: dark) {
+        /* Default dark mode styling */
+        html:not(.light) body {
+          background-color: var(--bg-primary, #181A20);
+          color: var(--text-primary, #EAECEF);
+        }
+        
+        html:not(.light) .loading-title {
+          background: linear-gradient(to right, #38bdf8, #60a5fa, #a78bfa);
+          background-clip: text;
+          -webkit-background-clip: text;
+          color: transparent;
+        }
+        
+        html:not(.light) .skeleton-header {
+          background: linear-gradient(135deg, rgba(56, 189, 248, 0.1), rgba(168, 85, 247, 0.1));
+          border: 1px solid rgba(56, 189, 248, 0.2);
+        }
+        
+        html:not(.light) .skeleton-card {
+          background: var(--bg-secondary, #1F2128);
+        }
+        
+        html:not(.light) .skeleton-avatar,
+        html:not(.light) .skeleton-text-line,
+        html:not(.light) .skeleton-card-icon,
+        html:not(.light) .skeleton-card-title,
+        html:not(.light) .skeleton-card-subtitle,
+        html:not(.light) .skeleton-card-price,
+        html:not(.light) .skeleton-card-change {
+          background: var(--bg-tertiary, #252A33);
+        }
+      }
+      
+      html.dark .skeleton-header {
+        background: linear-gradient(135deg, rgba(56, 189, 248, 0.1), rgba(168, 85, 247, 0.1)) !important;
+        border: 1px solid rgba(56, 189, 248, 0.2) !important;
+      }
+      
+      html.dark .skeleton-card {
+        background: var(--bg-secondary, #1F2128) !important;
+      }
+      
+      html.dark .skeleton-avatar,
+      html.dark .skeleton-text-line,
+      html.dark .skeleton-card-icon,
+      html.dark .skeleton-card-title,
+      html.dark .skeleton-card-subtitle,
+      html.dark .skeleton-card-price,
+      html.dark .skeleton-card-change {
+        background: var(--bg-tertiary, #252A33) !important;
+      }
+      
+      html.dark .skeleton-card-icon {
+        border-color: var(--bg-accent, #333A47) !important;
+      }
+      
+      /* Responsive adjustments */
+      @media (max-width: 640px) {
+        .loading-logo {
+          width: 60px;
+          height: 60px;
+        }
+        
+        .loading-title {
+          font-size: 1.5rem;
+        }
+        
+        .loading-skeleton {
+          max-width: 280px;
+        }
+        
+        .skeleton-avatar {
+          width: 32px;
+          height: 32px;
+        }
+        
+        .skeleton-card-icon {
+          width: 28px;
+          height: 28px;
+        }
+      }
+    </style>
+    <script type="module" crossorigin src="/assets/index-Der0s4qd.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/router-DKWF941e.js">
+    <link rel="modulepreload" crossorigin href="/assets/ui-CCmwGeQ5.js">
+    <link rel="modulepreload" crossorigin href="/assets/charts-CB0gW07A.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-Ea673HAH.css">
+  </head>
+  <body>
+    <noscript>
+      <div style="
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        color: var(--brand-accent, #FCD535);
+        background: var(--bg-primary, #181A20);
+        padding: 2rem;
+        border-radius: 8px;
+        border: 1px solid var(--brand-accent, #FCD535);
+        box-shadow: 0 4px 6px -1px rgba(252, 213, 53, 0.3);
+      ">
+        <h2 style="margin: 0 0 1rem 0; color: var(--brand-accent, #FCD535);">JavaScript Required</h2>
+        <p style="margin: 0; color: var(--text-primary, #EAECEF);">Please enable JavaScript to use HEX Global.</p>
+      </div>
+    </noscript>
+    
+    <!-- Loading screen with logo and title -->
+    <div class="loading-container">
+      <h1 class="loading-title">HEX Global</h1>
+      <div class="loading-skeleton">
+        <!-- Header Skeleton -->
+        <div class="skeleton-header">
+          <div class="skeleton-avatar"></div>
+          <div class="skeleton-text">
+            <div class="skeleton-text-line"></div>
+            <div class="skeleton-text-line"></div>
+          </div>
+        </div>
+        
+        <!-- Market Cards Skeleton -->
+        <div class="skeleton-cards">
+          <div class="skeleton-card">
+            <div class="skeleton-card-left">
+              <div class="skeleton-card-icon"></div>
+              <div class="skeleton-card-text">
+                <div class="skeleton-card-title"></div>
+                <div class="skeleton-card-subtitle"></div>
+              </div>
+            </div>
+            <div class="skeleton-card-right">
+              <div class="skeleton-card-price"></div>
+              <div class="skeleton-card-change"></div>
+            </div>
+          </div>
+          
+          <div class="skeleton-card">
+            <div class="skeleton-card-left">
+              <div class="skeleton-card-icon"></div>
+              <div class="skeleton-card-text">
+                <div class="skeleton-card-title"></div>
+                <div class="skeleton-card-subtitle"></div>
+              </div>
+            </div>
+            <div class="skeleton-card-right">
+              <div class="skeleton-card-price"></div>
+              <div class="skeleton-card-change"></div>
+            </div>
+          </div>
+          
+          <div class="skeleton-card">
+            <div class="skeleton-card-left">
+              <div class="skeleton-card-icon"></div>
+              <div class="skeleton-card-text">
+                <div class="skeleton-card-title"></div>
+                <div class="skeleton-card-subtitle"></div>
+              </div>
+            </div>
+            <div class="skeleton-card-right">
+              <div class="skeleton-card-price"></div>
+              <div class="skeleton-card-change"></div>
+            </div>
+          </div>
+          
+          <div class="skeleton-card">
+            <div class="skeleton-card-left">
+              <div class="skeleton-card-icon"></div>
+              <div class="skeleton-card-text">
+                <div class="skeleton-card-title"></div>
+                <div class="skeleton-card-subtitle"></div>
+              </div>
+            </div>
+            <div class="skeleton-card-right">
+              <div class="skeleton-card-price"></div>
+              <div class="skeleton-card-change"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div id="root"></div>
+    
+    <!-- Hide loading screen once React app loads -->
+    <script>
+      window.addEventListener('load', () => {
+        const root = document.getElementById('root');
+        const loadingContainer = document.querySelector('.loading-container');
+        
+        // Check if React app has rendered
+        const checkForReactApp = () => {
+          if (root.children.length > 0) {
+            loadingContainer.style.opacity = '0';
+            loadingContainer.style.transition = 'opacity 0.5s ease';
+            root.classList.add('loaded');
+            
+            setTimeout(() => {
+              loadingContainer.style.display = 'none';
+            }, 500);
+          } else {
+            setTimeout(checkForReactApp, 100);
+          }
+        };
+        
+        checkForReactApp();
+      });
+    </script>
+  </body>
+</html>

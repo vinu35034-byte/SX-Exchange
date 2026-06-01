@@ -1,0 +1,13 @@
+.git/
+.gitignore
+.DS_Store
+*.md
+nginx/certs/origin.crt
+nginx/certs/origin.key
+backend/node_modules/
+backend/logs/
+backend/uploads/
+backend/.env
+backend/.env.*
+frontend/node_modules/
+frontend/.env.*
